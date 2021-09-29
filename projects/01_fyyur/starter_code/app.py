@@ -70,16 +70,17 @@ def venues():
      result_venues = Venue.query.filter_by(state=r.state).filter_by(city=r.city).all()
      venue_data = []
      for venue in result_venues:
-      venue_data.append({
-        "id": venue.id,
-        "name": venue.name, 
-        "num_upcoming_shows": len(db.session.query(Show).filter(Show.venue_id==venue.id).filter(Show.start_time>datetime.now()).all())
-      })
-    data.append({
+          venue_data.append({
+            "id": venue.id,
+            "name": venue.name,
+            "num_upcoming_shows": len(db.session.query(Show).filter(Show.venue_id==venue.id).filter(Show.start_time>datetime.now()).all())
+        })
+
+     data.append({
       "city": r.city,
-      "state": r.state, 
+      "state": r.state,
       "venues": venue_data
-    })
+      })
     
     return render_template('pages/venues.html', areas=data);
 
