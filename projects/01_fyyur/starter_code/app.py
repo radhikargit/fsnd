@@ -16,7 +16,6 @@ import logging
 from logging import Formatter, FileHandler
 from flask_wtf import Form
 from forms import *
-from models import *
 
 # ----------------------------------------------------------------------------#
 # App Config.
@@ -30,6 +29,11 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/01_fyyur'
+
+# ----------------------------------------------------------------------------#
+# Models.
+# ----------------------------------------------------------------------------#
+from models import *
 
 # ----------------------------------------------------------------------------#
 # Filters.
