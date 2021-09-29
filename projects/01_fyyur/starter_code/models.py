@@ -42,7 +42,7 @@ class Artist(db.Model):
     seeking_description = db.Column(db.String(500))
     past_shows_count = db.Column(db.Integer)
     upcoming_shows_count = db.Column(db.Integer)
-    shows = db.relationship('Show', backref='artisit', lazy=True)
+    shows = db.relationship('Show', backref='artist', lazy=True)
 
     def __repr__(self):
       return f'<Artist: {self.id}, {self.name}>'
